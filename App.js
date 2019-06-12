@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+// import { Text, View } from 'react-native';
 import Header from './src/components/header';
 
 
@@ -7,10 +7,7 @@ import Header from './src/components/header';
 export default class App extends Component {
   render() {
     return (
-      <View>
-        <Text>Test</Text>
-        <Header />
-      </View>
+      <Header />
     );
   }
 }
