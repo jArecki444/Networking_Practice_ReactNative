@@ -1,14 +1,56 @@
 import React from 'react';
-import { Text } from 'react-native';
+import {
+  Text, View, StyleSheet, Image
+} from 'react-native';
 import Card from './card';
 import CardItem from './cardItem';
 
-const AlbumDetail = props => (
-  <Card>
-    <CardItem>
-      <Text>{props.album.title}</Text>
-    </CardItem>
-  </Card>
-);
+const AlbumDetail = ({ album }) => {
+  const {
+    title, artist, thumbnail_image, image
+  } = album;
+
+  return (
+    <Card>
+      <CardItem>
+        <View style={styles.thumbnailContainerStyle}>
+          <Image style={styles.thumbnailStyle} source={{ uri: thumbnail_image }} />
+        </View>
+        <View style={styles.headerContentStyle}>
+          <Text style={styles.headerTextStyle}>{title}</Text>
+          <Text>{artist}</Text>
+        </View>
+      </CardItem>
+      <CardItem>
+        <Image style={styles.albumImageStyle} source={{ uri: image }} />
+      </CardItem>
+    </Card>
+  );
+};
+
+const styles = StyleSheet.create({
+  headerContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  headerTextStyle: {
+    fontSize: 18
+  },
+  thumbnailStyle: {
+    width: 50,
+    height: 50
+  },
+  thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
+  albumImageStyle: {
+    flex: 1,
+    height: 300,
+    width: null // trick for full width filled image
+  }
+});
 
 export default AlbumDetail;
