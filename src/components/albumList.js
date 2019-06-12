@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-
+import { View } from 'react-native';
+import AlbumDetail from './albumDetail';
 // eslint-disable-next-line react/prefer-stateless-function
 class AlbumList extends Component {
         state = { albums: [] };
@@ -12,16 +12,14 @@ class AlbumList extends Component {
         }
 
         renderAlbums() {
-          return this.state.albums.map(album => <Text>{album.title}</Text>);
+          return this.state.albums.map(album => (
+            <AlbumDetail key={album.title} album={album} />
+          ));
         }
 
         render() {
           console.log(this.state);
-          return (
-            <View>
-              {this.renderAlbums()}
-            </View>
-          );
+          return <View>{this.renderAlbums()}</View>;
         }
 }
 
