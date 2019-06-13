@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import Card from './card';
 import CardItem from './cardItem';
+import Button from './button';
 
 const AlbumDetail = ({ album }) => {
   const {
@@ -23,6 +24,9 @@ const AlbumDetail = ({ album }) => {
       </CardItem>
       <CardItem>
         <Image style={styles.albumImageStyle} source={{ uri: image }} />
+      </CardItem>
+      <CardItem>
+        <Button onPress={() => console.log(title)} />
       </CardItem>
     </Card>
   );
